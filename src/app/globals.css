@@ -1,0 +1,233 @@
+/* Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Updated color palette with Crimson */
+    --background: 0 0% 100%; /* White */
+    --foreground: 220 5.3% 26.1%; /* Dark Gray */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 348 83% 47%; /* Crimson */
+    --primary-foreground: 0 0% 98%; /* White/Light Gray */
+    --secondary: 0 0% 96%; /* Light Gray */
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 0 0% 96%; /* Light Gray */
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 348 83% 55%; /* Lighter Crimson for accent */
+    --accent-foreground: 0 0% 98%; /* White/Light Gray */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 348 83% 47%; /* Crimson for focus ring */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 348 83% 47%; /* Crimson */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96%; /* Light Gray */
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 348 83% 47%; /* Crimson */
+
+    /* Gradient Definitions */
+    --gradient-start-light: 0 0% 100%; /* White */
+    --gradient-end-light: 348 83% 95%; /* Very Light Crimson Tint */
+    --gradient-start-dark: 240 10% 4%; /* Dark Blue */
+    --gradient-end-dark: 348 83% 15%; /* Dark Crimson Shade */
+  }
+
+  .dark {
+    --background: 240 10% 4%; /* Dark Blue */
+    --foreground: 0 0% 98%; /* Light Blue/White */
+    --card: 240 10% 4%; /* Dark Blue */
+    --card-foreground: 0 0% 98%; /* Light Blue/White */
+    --popover: 240 10% 4%; /* Dark Blue */
+    --popover-foreground: 0 0% 98%; /* Light Blue/White */
+    --primary: 348 83% 47%; /* Crimson */
+    --primary-foreground: 0 0% 98%; /* White */
+    --secondary: 240 3.7% 15.9%; /* Darker Gray/Blue */
+    --secondary-foreground: 0 0% 98%; /* White */
+    --muted: 240 3.7% 15.9%; /* Darker Gray/Blue */
+    --muted-foreground: 217.9 10% 64.9%;
+    --accent: 348 83% 55%; /* Lighter Crimson for accent */
+    --accent-foreground: 0 0% 98%; /* White */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 348 83% 47%; /* Crimson */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 348 83% 47%; /* Crimson */
+    --sidebar-primary-foreground: 0 0% 98%; /* White */
+    --sidebar-accent: 240 3.7% 15.9%; /* Darker Gray/Blue */
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 348 83% 47%; /* Crimson */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Apply subtle background gradient */
+    background-image: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--gradient-end-light))); /* Default to light */
+  }
+
+  .dark body {
+     background-image: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--gradient-end-dark)));
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .container-tight {
+    @apply container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .text-responsive {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Improved text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80;
+  }
+  /* Enhanced background gradients */
+  .bg-gradient-body-light {
+    background-image: linear-gradient(to bottom, hsl(var(--gradient-start-light)), hsl(var(--gradient-end-light)));
+  }
+  .bg-gradient-body-dark {
+    background-image: linear-gradient(to bottom, hsl(var(--gradient-start-dark)), hsl(var(--gradient-end-dark)));
+  }
+  /* Container classes */
+  .container-tight {
+    @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+  }
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  /* Responsive text utilities */
+  .text-responsive {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+  .heading-responsive {
+    @apply text-3xl font-bold md:text-4xl lg:text-5xl;
+  }
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:scale-[1.02];
+  }
+  .fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  .slide-down {
+    animation: slide-down 0.5s ease-out forwards;
+  }
+}
+
+/* Keep existing card styles or add specific gradient backgrounds if desired */
+.card {
+  background-color: hsl(var(--card)); /* Fallback */
+}
+
+/* Improved animations */
+.fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+.slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-up {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-down {
+  from { 
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Enhanced hover effects */
+.hover-scale {
+  transition: transform 0.3s ease-in-out;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Improved focus styles */
+.focus-ring {
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+.focus-ring:focus-visible { /* Use focus-visible for better accessibility */
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary));
+}
